@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "crud-django"
+version = "0.1.0"
+description = ""
+authors = ["ArthurSampaio13 <arthur.sampaio@upe.br>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+django = "^5.1.4"
+taskipy = "^1.14.1"
+
+[tool.taskipy.tasks]
+dev = "python manage.py runserver"
+lint = "pylint tests taskipy"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
