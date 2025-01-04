@@ -1,5 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 style="text-align: center;"> Lista de livros</h2>
+    <h2 style="text-align: center;"> Login</h2>
     <hr>
+    <form method="post" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label class="form-label">Usuário</label>
+            <input type="text" class="form-control" name="usuario" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Senha</label>
+            <input type="password" class="form-control" name="senha" required>
+        </div>
+        <button class="btn btn-primary" type="submit">Login</button>
+    </form>
 {% endblock %}
