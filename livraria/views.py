@@ -75,4 +75,17 @@ def book_detail(request, id):
         return redirect('home')
     
 def book_delete(request, id):
-    pass
+    if request.user.is_authenticated:
+        book = Book.objects.get(id=id)
+        book.delete()
+        messages.success(
+            request,
+            "Livro excluído com sucesso!"
+        )
+        return redirect('home')
+    else:
+        messages.error(
+            request,
+            "Você precisa estar logado"
+        )
+        return redirect('home')
