@@ -1,7 +1,7 @@
 from django.db import models
 
 class Book(models.Model):
-    created_at = models.DateTimeField(auto_created=True)
+    created_at = models.DateTimeField(auto_created=True, blank=True, null=True)
     title = models.CharField(max_length=50)
     description = models.CharField(max_length=200)
     year = models.IntegerField()
