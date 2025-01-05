@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 def home(request):
@@ -30,4 +30,12 @@ def home(request):
         return render(request, 'home.html')
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(
+        request,
+        "Você fez logout com sucesso"
+    )
+    return redirect('home')
+
+def register(request):
+    return render(request, 'register.html')
