@@ -110,6 +110,7 @@ def book_update(request, id):
         if form.is_valid():
             form.save()
             messages.success(request, "Livro atualizado com sucesso")
+            return redirect('home')
         return render(request, 'update_book.html', {"form" : form})
     else:
         messages.error(request, "Você deve estar autenticado para atualizar livros")
