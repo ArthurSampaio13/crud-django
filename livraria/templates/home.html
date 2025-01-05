@@ -2,6 +2,9 @@
 {% block content %}
     <h2 style="text-align: center;"> Login</h2>
     <hr>
+    {% if user.is_authenticated %}
+        <h3>Usuário logado </h3>
+    {% else %}
     <form method="post" action="{% url 'home' %}">
         {% csrf_token %}
         <div class="mb-3">
@@ -14,4 +17,5 @@
         </div>
         <button class="btn btn-primary" type="submit">Login</button>
     </form>
+    {% endif %}
 {% endblock %}
