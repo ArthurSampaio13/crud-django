@@ -17,11 +17,11 @@
                 {% if books %}
                     {% for book in books %}
                         <tr>
-                            <th>{{book.ID}}</th>
-                            <th>{{book.title}}</th>
-                            <th>{{book.genre}}</th>
-                            <th>{{book.year}}</th>
-                            <th>{{book.value}}</th>
+                            <td><a href="{% url 'book' book.id %}">{{book.id}}</a></td>
+                            <td>{{book.title}}</td>
+                            <td>{{book.genre}}</td>
+                            <td>{{book.year}}</td>
+                            <td>{{book.value}}</td>
                         </tr>
                     {% endfor %}
                 {% endif %}
