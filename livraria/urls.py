@@ -5,7 +5,8 @@ from livraria.views import (
     register, 
     book_detail, 
     book_delete,
-    add_book
+    add_book,
+    book_update
 )
 
 urlpatterns = [
@@ -14,5 +15,6 @@ urlpatterns = [
     path('register/', register, name = "register"),
     path('book/<int:id>', book_detail, name = "book"),
     path('delete_book/<int:id>', book_delete, name="delete_book"),
-    path('add_book/', add_book, name="add_book")
+    path('add_book/', add_book, name="add_book"),
+    path('update_book/<int:id>', book_update, name="update_book")
 ]

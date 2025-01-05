@@ -102,3 +102,15 @@ def add_book(request):
     else:
         messages.error(request, "Você deve estar autenticado para adicionar livros")
         return redirect('home')
+    
+def book_update(request, id):
+    if request.user.is_authenticated:
+        book = Book.objects.get(id=id)
+        form = AddBookForm(request.POST or None, instance=book)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Livro atualizado com sucesso")
+        return render(request, 'update_book.html', {"form" : form})
+    else:
+        messages.error(request, "Você deve estar autenticado para atualizar livros")
+        return redirect('home')
