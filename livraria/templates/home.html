@@ -1,21 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2 style="text-align: center;"> Login</h2>
-    <hr>
     {% if user.is_authenticated %}
-        <h3>Usuário logado </h3>
+        <h2 style="text-align: center;">Lista de livros</h2>
+        <hr>
+        <table class="table table-striped table-bordered table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Gênero</th>
+                    <th>Ano</th>
+                    <th>Valor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if books %}
+                    {% for book in books %}
+                        <tr>
+                            <th>{{book.ID}}</th>
+                            <th>{{book.title}}</th>
+                            <th>{{book.genre}}</th>
+                            <th>{{book.year}}</th>
+                            <th>{{book.value}}</th>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
     {% else %}
-    <form method="post" action="{% url 'home' %}">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label class="form-label">Usuário</label>
-            <input type="text" class="form-control" name="usuario" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Senha</label>
-            <input type="password" class="form-control" name="senha" required>
-        </div>
-        <button class="btn btn-primary" type="submit">Login</button>
-    </form>
+        <h2 style="text-align: center;"> Login</h2>
+        <hr>
+        <form method="post" action="{% url 'home' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label class="form-label">Usuário</label>
+                <input type="text" class="form-control" name="usuario" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Senha</label>
+                <input type="password" class="form-control" name="senha" required>
+            </div>
+            <button class="btn btn-primary" type="submit">Login</button>
+        </form>
     {% endif %}
 {% endblock %}
