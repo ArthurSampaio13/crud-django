@@ -1,98 +1,106 @@
-# Projeto CRUD com Django
+# Livraria App 📚
 
-Este projeto é uma aplicação web desenvolvida com o framework Django, implementando operações CRUD (Create, Read, Update, Delete) para gerenciar [especificar o tipo de dados, por exemplo, "informações de funcionários"].
+Uma aplicação web de gerenciamento de livros desenvolvida com Django. Este projeto oferece funcionalidades completas de autenticação, cadastro e gerenciamento de livros, incluindo criação, leitura, atualização e exclusão (CRUD).
 
-## Índice
+## 🛠️ Funcionalidades
 
-- [Funcionalidades](#funcionalidades)
-- [Tecnologias Utilizadas](#tecnologias-utilizadas)
-- [Instalação](#instalação)
-- [Arquitetura do Projeto](#arquitetura-do-projeto)
+- **Autenticação de Usuário**:
+  - Login, Logout e Registro.
+  - Mensagens de feedback para ações bem-sucedidas ou erros.
+  
+- **Gerenciamento de Livros**:
+  - Adicionar, visualizar, editar e excluir livros.
+  - Visualizar lista completa de livros com detalhes.
+  
+- **Interface Responsiva**:
+  - Design moderno utilizando Bootstrap.
 
-## Funcionalidades
+---
 
-- **Criar**: Adicionar novos registros ao sistema.
-- **Ler**: Visualizar uma lista de registros existentes ou detalhes de um registro específico.
-- **Atualizar**: Editar informações de registros existentes.
-- **Deletar**: Remover registros do sistema.
+## 💂️ Estrutura do Projeto
 
-## Tecnologias Utilizadas
+```
+ArthurSampaio13-crud-django/
+├── manage.py
+├── pyproject.toml
+├── crudDjango/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+└── livraria/
+    ├── admin.py
+    ├── forms.py
+    ├── models.py
+    ├── urls.py
+    ├── views.py
+    ├── migrations/
+    └── templates/
+        ├── base.html
+        ├── home.html
+        ├── add_book.html
+        ├── update_book.html
+        └── book.html
+```
 
-- **Linguagem**: Python 3.x
-- **Framework**: Django 3.x
-- **Banco de Dados**: SQLite 
-- **Front-end**: HTML, CSS, JavaScript 
+---
 
-## Instalação
+## ⚙️ Instalação
 
 1. **Clone o repositório**:
-
    ```bash
    git clone https://github.com/ArthurSampaio13/crud-django.git
    cd crud-django
    ```
 
-2. **Instale as dependências**:
+2. **Instale o Poetry** (se ainda não estiver instalado):
+   ```bash
+   pip install poetry
+   ```
 
+3. **Instale as dependências do projeto**:
    ```bash
    poetry install
    ```
 
-3. **Configure o banco de dados**:
+4. **Ative o ambiente virtual do Poetry**:
+   ```bash
+   poetry shell
+   ```
 
-   - Edite o arquivo `settings.py` para configurar o banco de dados conforme sua preferência.
-   - Aplique as migrações:
-
-     ```bash
-     python manage.py migrate
-     ```
-
-4. **Execute o servidor de desenvolvimento**:
-
+5. **Execute a aplicação** utilizando o Taskipy:
    ```bash
    task dev
    ```
 
-6. **Acesse a aplicação**:
+---
 
-   - Abra o navegador e vá para `http://localhost:8000/`.
+## 🖥️ Uso
 
-## Arquitetura do Projeto
+- **Página Inicial**: Exibe a lista de livros (requer autenticação).
+- **Cadastro de Usuário**: Registre-se para acessar o sistema.
+- **Adicionar Livro**: Crie novos registros de livros.
+- **Editar Livro**: Atualize informações de livros existentes.
+- **Excluir Livro**: Remova livros da lista.
 
-O projeto segue a estrutura padrão do Django, organizada da seguinte forma:
+---
 
-```
-└── crud-django/
-    ├── manage.py
-    ├── pyproject.toml
-    ├── crudDjango/
-    │   ├── __init__.py
-    │   ├── asgi.py
-    │   ├── settings.py
-    │   ├── urls.py
-    │   └── wsgi.py
-    └── livraria/
-        ├── __init__.py
-        ├── admin.py
-        ├── apps.py
-        ├── forms.py
-        ├── models.py
-        ├── tests.py
-        ├── urls.py
-        ├── views.py
-        ├── migrations/
-        │   ├── 0001_initial.py
-        │   ├── 0002_alter_book_created_at.py
-        │   └── __init__.py
-        └── templates/
-            ├── add_book.html
-            ├── base.html
-            ├── book.html
-            ├── home.html
-            ├── navbar.html
-            ├── register.html
-            └── update_book.html
+## 📄 Estrutura das Tabelas
 
-```
+**Modelo Book**:
+- `id`: Identificador único.
+- `title`: Título do livro.
+- `description`: Descrição do livro.
+- `year`: Ano de publicação.
+- `genre`: Gênero do livro.
+- `value`: Preço do livro.
 
+---
+
+## 📊 Tecnologias Utilizadas
+
+- **Back-end**: Django 5.1.4
+- **Banco de Dados**: SQLite (padrão, pode ser alterado).
+- **Front-end**: Bootstrap 5
+- **Gerenciamento**: Poetry para dependências e Taskipy para automação de tarefas.
 
